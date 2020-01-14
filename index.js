@@ -1,10 +1,15 @@
 const express = require("express");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const app = express();
 
-app.use(express.json());
+const routes = require("./routes");
 
-mongoose.connect('mongodb+srv://lucasmancan:root@cluster0-khw4f.mongodb.net/test?retryWrites=true&w=majority');
+app.use(express.json());
+app.use(routes);
+
+mongoose.connect(
+  "mongodb+srv://lucasmancan:root@cluster0-khw4f.mongodb.net/test?retryWrites=true&w=majority"
+);
 
 app.get("/", (req, res) => {
   console.log(req.query);
