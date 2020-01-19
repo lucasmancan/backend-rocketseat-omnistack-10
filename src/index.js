@@ -7,6 +7,8 @@ const routes = require("./routes");
 app.use(express.json());
 app.use(routes);
 
+
+// Replace with your connection string
 mongoose.connect(config.connectionString);
 
 app.get("/", (req, res) => {
